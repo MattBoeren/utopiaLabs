@@ -38,10 +38,12 @@ function mousePressed(){
   }
   
   if(Led.pressedCheck() == true){
+    
     result = Led.pressed();
 
     pressedObject = true;
   }
+  
   if(Resistor.pressedCheck() == true){
     result = Resistor.pressed();
 

@@ -53,24 +53,24 @@ class resistor{
   }
 
   pressed(){
+    
     let result = [];
     
-    let distance = dist(mouseX, mouseY, this.x, this.y+1);
+    let distance = dist(mouseX,mouseY, this.x, this.y+1);
 
     if(distance < 4){
-        result[0] = "L" + String(value);
-        result[1] = this.x;
-        result[2] = this.y+1;
-    }
-  
-      distance = dist(mouseX, mouseY, this.x+40, this.y+1);
-  
-    if(distance < 4){
-        result[0] = "R" + String(value);
-        result[1] = this.x+40;
-        result[2] = this.y+1;
+      result[0] = "L" + String(this.value);
+      result[1] = this.x;
+      result[2] = this.y+1;
     }
 
-      return result;
+    distance = dist(mouseX,mouseY, this.x+40, this.y+1);
+
+    if(distance < 4){
+      result[0] = "R" + String(this.value);
+      result[1] = this.x+40;
+      result[2] = this.y+1;
+    }
+    return result;
   }
 }
