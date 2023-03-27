@@ -22,7 +22,7 @@ class connection{
       line(this.position[this.position.length - 1].x,this.position[this.position.length - 1].y, mouseX, mouseY);
       fill(0,0,0);
       noStroke();
-      rectMode(CORNER)
+      textAlign(LEFT);
       text("r = red",mouseX+10, mouseY);
       text("g = green",mouseX+10, mouseY+15);
       text("b = blue",mouseX+10, mouseY+30);

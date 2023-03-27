@@ -1,12 +1,14 @@
 let Arduino;
 let connections = [];
 let Led;
+let Resistor;
 let connected = false;
 
 function setup() {
   createCanvas(400, 400);
   Arduino = new arduino(100,100);
-  Led = new led(50, 50, 255, 0, 0);
+  Led = new led(100, 50, 255, 0, 0);
+  Resistor = new resistor(200, 150, 50);
 }
 
 function draw() {
@@ -14,6 +16,9 @@ function draw() {
   Arduino.draw();
   Arduino.hover();
   Led.draw();
+  Led.hover();
+  Resistor.draw();
+  Resistor.hover();
   for(let i = 0; i < connections.length; i++){
     connections[i].draw();
   }
@@ -23,12 +28,27 @@ function mousePressed(){
 
   let pressedObject = false;
 
-
+  let result = [];
 
   if(Arduino.pressedCheck() == true){
     
-    let result = Arduino.pressed();
+    result = Arduino.pressed();
     
+    pressedObject = true;
+  }
+  
+  if(Led.pressedCheck() == true){
+    result = Led.pressed();
+
+    pressedObject = true;
+  }
+  if(Resistor.pressedCheck() == true){
+    result = Resistor.pressed();
+
+    pressedObject = true;
+  }
+
+  if(pressedObject == true){
     if(connected == false){
       connections.push(new connection(result[0], result[1], result[2]));
       connected = true;
@@ -37,11 +57,8 @@ function mousePressed(){
       connections[connections.length-1].addEndPosition(result[0], result[1], result[2]);
       connected = false;
     }
-    
-    pressedObject = true;
   }
-  
-  
+
   if((pressedObject == false) && (connected == true)){
     connections[connections.length-1].addPosition(mouseX, mouseY);
   }
@@ -67,6 +84,7 @@ function keyPressed(){
       connections[connections.length-1].setColor(0, 0, 0);
     }
   }
+
   if(keyCode == BACKSPACE){
     connections.pop();
     if(connected == true){

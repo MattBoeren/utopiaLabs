@@ -40,7 +40,58 @@ class led{
     this.colorOn = this.color;
   }
   
-  expload(){
+  hover(){
+    let distance = dist(mouseX,mouseY, this.x+5, this.y+12);
+
+    if(distance < 4){
+      fill(255,0,0);
+      rect(this.x+3, this.y+12, 5, 5);
+    }
+
+    distance = dist(mouseX,mouseY, this.x+12, this.y+7);
+
+    if(distance < 4){
+      fill(255,0,0);
+      rect(this.x+9, this.y+5, 5, 5);
+    }
+  }
+
+  pressedCheck(){
+    let result = false;
+
+    let distance = dist(mouseX,mouseY, this.x+5, this.y+12);
+
+    if(distance < 4){
+      result = true;
+    }
+
+    distance = dist(mouseX,mouseY, this.x+12, this.y+7);
+
+    if(distance < 4){
+      result = true;
+    }
+
+    return result;
+  }
+
+  pressed(){
+    let result = [];
     
+    let distance = dist(mouseX,mouseY, this.x+5, this.y+12);
+
+    if(distance < 4){
+      result[0] = "+";
+      result[1] = this.x+5;
+      result[2] = this.y+12;
+    }
+
+    distance = dist(mouseX,mouseY, this.x+12, this.y+7);
+
+    if(distance < 4){
+      result[0] = "-";
+      result[1] = this.x+12;
+      result[2] = this.y+7;
+    }
+    return result;
   }
 }

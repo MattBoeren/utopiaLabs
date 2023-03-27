@@ -61,7 +61,7 @@ class arduino{
   }
   
   draw(){
-    fill(0,0,255);
+    fill(0,0,200);
     stroke(0,0,0);
     strokeWeight(1);
     beginShape();
