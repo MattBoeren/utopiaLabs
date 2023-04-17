@@ -112,7 +112,7 @@ class arduino{
     for(let i=0; i<28; i++){
       
       let distance = dist(mouseX,mouseY,this.x+this.connectors[i][1].x, this.y+this.connectors[i][1].y);
-      
+    
       if(distance <4){
         rectMode(CENTER);
         fill(255,0,0);
