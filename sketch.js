@@ -3,10 +3,19 @@ let level;
 let objects = [];
 let connected = false;
 let connections = [];
+let buttons = [];
+let intro = true;
 
 function setup() {
   createCanvas(400, 400);
   level = new level1();
+
+  buttons[0] = createButton("100Ω");
+  buttons[0].mousePressed(function(){buttons[0].remove()});
+  buttons[1] = createButton("150Ω");
+  buttons[1].mousePressed(level.right);
+  buttons[2] = createButton("200Ω");
+  buttons[2].mousePressed(function(){buttons[2].remove()});
 }
 
 function draw() {
