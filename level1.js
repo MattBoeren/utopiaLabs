@@ -1,81 +1,40 @@
 class level1{
 
-    constructor(){
-        this.objects = [];
+  constructor(){
+    objects = [];
 
-        this.objects[0] = new arduino(100,100);
-        this.objects[1] = new led(100, 50, 255, 0, 0);
-        this.objects[2] = new resistor(200, 150, 50);
+    objects[0] = new arduino(100,100);
+    objects[1] = new led(100, 50, 255, 0, 0);
+    objects[2] = new resistor(200, 150, 50);
 
-        this.connections = [];
-        this.connected = false;
+    this.intro = true;
+    this.introText1 = "One of the simplest electronic componants in electronics is an LED. LED is an abbreviation for light emmiting diode. It is a diode which means the LED will only let current true if current passes in a specific way. A positive voltage will need to be applied at the anode (positive side) of the LED. The ground has to be connected to the catode (negative side) of the LED. You can recognise the anode of the led by the longer leg of the LED or the bump on the LED itself.";
+
+    this.introText2 = "A flaw of LED's is that their resistance is to low. This means that if you connect an LED to the arduino without a resistor you will short circuit the arduino. To avoid that we can connect a resistor in series to the LED. The resistance of the resistor can be calculated by the following formula: R = (U-Uled)/I. With R being the resistance, U being the voltage, Uled the voltage the led needs and I being the current of the led. Their is not a resistor for every resistorvalue so it is best to use a higher resistor value than you calculated.";
+
+    this.challenge = "Challange: Which resistor fits best? if the arduino puts out 5V, the LED needs 2.2V and uses 0.02A of current.";
+
+    this.element = createElement('p',this.challenge);
+    this.buttons = [];
+    this.buttons[0] = createButton("100Ω");
+    this.buttons[1] = createButton("150Ω");
+    this.buttons[2] = createButton("200Ω");
+  }
+
+  draw(){
+
+    if(this.intro == true){
+      text(this.introText1, 10,10,350,150);
+      text(this.introText2, 10,150,350,400);
     }
-
-    draw(){
-      for(let i = 0; i < this.objects.length; i++){
-        this.objects[i].draw();
-        this.objects[i].hover();
+    else{
+      for(let i = 0; i < objects.length; i++){
+        objects[i].draw();
+        objects[i].hover();
       }
-      for(let i = 0; i < this.connections.length; i++){
-        this.connections[i].draw();
-      }
-    }
-
-    pressed(){
-
-      this.pressedObject = false;
-      this.result = [];
-
-      for(let i=0; i< this.objects.length; i++){
-        if(this.objects[i].pressedCheck() == true){
-    
-          this.result = this.objects[i].pressed();
-                
-          this.pressedObject = true;
-        }
-      }
-
-      if(this.pressedObject == true){
-        if(this.connected == false){
-          this.connections.push(new connection(result[0], result[1], result[2]));
-          this.connected = true;
-        }
-        else{
-          this.connections[connections.length-1].addEndPosition(result[0], result[1], result[2]);
-          this.connected = false;
-        }
-      }
-        
-      if((this.pressedObject == false) && (this.connected == true)){
-        this.connections[connections.length-1].addPosition(mouseX, mouseY);
+      for(let i = 0; i < connections.length; i++){
+        connections[i].draw();
       }
     }
-
-
-    Key(input){
-      if(this.connected == true){
-        if(input == 'r'){
-          this.connections[connections.length-1].setColor(255, 0, 0);
-        }
-      
-        if(input == 'g'){
-          this.connections[connections.length-1].setColor(0,100,0);
-        }
-    
-        if(input == 'b'){
-          this.connections[connections.length-1].setColor(0, 0, 255);
-        }
-        
-        if(input == 'l'){
-          this.connections[connections.length-1].setColor(0, 0, 0);
-        }
-      }
-    
-      // if(keyCode == BACKSPACE){
-      //   this.connections.pop();
-      //   if(connected == true){
-      //     this.connected = !connected;
-      //   }
-      // }
-    }
+  }
 }
