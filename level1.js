@@ -1,13 +1,11 @@
 class level1{
-
+  
   constructor(){
     objects = [];
 
     objects[0] = new arduino(100,100);
     objects[1] = new led(100, 50, 255, 0, 0, 1);
     objects[2] = new resistor(150, 150, 50, 1);
-
-    rightAnswer = 1;
 
     this.introText1 = "One of the simplest electronic componants in electronics is an LED. LED is an abbreviation for light emmiting diode. It is a diode which means the LED will only let current true if current passes in a specific way. A positive voltage will need to be applied at the anode (positive side) of the LED. The ground has to be connected to the catode (negative side) of the LED. You can recognise the anode of the led by the longer leg of the LED or the bump on the LED itself.";
 
@@ -28,6 +26,10 @@ class level1{
     if(intro == true){
       text(this.introText1, 10,10,350,150);
       text(this.introText2, 10,150,350,400);
+
+      buttons[0].mousePressed(level.wrong);
+      buttons[1].mousePressed(level.right);
+      buttons[2].mousePressed(level.wrong);
     }
     else{
       for(let i = 0; i < objects.length; i++){
@@ -42,12 +44,12 @@ class level1{
 
   right(){
     intro = false;
+
     for(let i = 0; i < buttons.length; i++){
       buttons[i].remove();
     }
-    buttons = [];
 
-    simulate.show();
+    simulateButton.show();
 
     challange.html("Challange: Connect the LED to the 5V and GND pin of the arduino in the right way to light the LED. Click the simulate button afterwords.");
 
@@ -94,10 +96,20 @@ class level1{
     if(correct == true){
       objects[1].on();
       answer.html("The simulation was succesfull.");
+      simulateButton.hide();
+      nextButton.show();
     }
     else{
       answer.html("The simulation was not succesfull. Try again.");
     }
     answer.show();
+  }
+
+  next(){
+    challange.hide();
+    answer.hide();
+    nextButton.hide();
+    connections = [];
+    level = new level2();
   }
 }

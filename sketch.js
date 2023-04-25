@@ -5,33 +5,32 @@ let connected = false;
 let connections = [];
 let buttons = [];
 let intro = true;
-let rightAnswer;
 let challange;
 let answer;
-let simulate;
+let simulateButton;
+let nextButton;
 
 function setup() {
   createCanvas(400, 400);
   level = new level1();
 
-  for(let i = 0; i < buttons.length; i++){
-    if(i == rightAnswer){
-      buttons[i].mousePressed(level.right);
-    }
-    else{
-      buttons[i].mousePressed(level.wrong);
-    }
-  }
 
-  simulate = createButton("simulate");
-  simulate.hide();
-  simulate.mousePressed(level.simulate);
+  simulateButton = createButton("simulate");
+  simulateButton.hide();
+
+  nextButton = createButton("next level");
+  nextButton.hide();
+  
   
 }
 
 function draw() {
   background(255);
+
   level.draw();
+  
+  simulateButton.mousePressed(level.simulate);
+  nextButton.mousePressed(level.next);
 }
 
 function mousePressed(){
