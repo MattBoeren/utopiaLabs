@@ -46,6 +46,7 @@ class arduino{
         this.connectors[i][0] = "A"+ String(i-22);     
       }
     }
+    
     for(let i = 0; i<8; i++){
       this.connectors[i][1] = createVector(174- 8*i,10);
     }

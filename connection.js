@@ -44,4 +44,10 @@ class connection{
     this.color[1] = g;
     this.color[2] = b;
   }
+  getStart(){
+    return this.start;
+  }
+  getEnd(){
+    return this.end;
+  }
 }

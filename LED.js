@@ -1,11 +1,13 @@
 class led{
-  constructor(x, y, r, g, b){
+  constructor(x, y, r, g, b, num){
     this.x = x;
     this.y = y;
 
     this.color = color(r*0.75, g*0.75, b*0.75);
     this.colorOn = this.color;
     this.colorOnBack = color(r, g ,b);
+
+    this.num = num;
   }
   
   draw(){
@@ -80,7 +82,7 @@ class led{
     let distance = dist(mouseX,mouseY, this.x+5, this.y+12);
 
     if(distance < 4){
-      result[0] = "+";
+      result[0] = str(this.num) + "+";
       result[1] = this.x+5;
       result[2] = this.y+12;
     }
@@ -88,7 +90,7 @@ class led{
     distance = dist(mouseX,mouseY, this.x+12, this.y+7);
 
     if(distance < 4){
-      result[0] = "-";
+      result[0] = str(this.num) + "-";
       result[1] = this.x+12;
       result[2] = this.y+7;
     }

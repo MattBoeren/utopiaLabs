@@ -1,8 +1,10 @@
 class resistor{
-  constructor(value, x, y){
+  constructor(value, x, y, num){
     this.value = value;
     this.x = x;
     this.y = y;
+
+    this.num = num;
   }
   
   draw(){
@@ -59,7 +61,7 @@ class resistor{
     let distance = dist(mouseX,mouseY, this.x, this.y+1);
 
     if(distance < 4){
-      result[0] = "L" + String(this.value);
+      result[0] = "LR" + String(this.num);
       result[1] = this.x;
       result[2] = this.y+1;
     }
@@ -67,7 +69,7 @@ class resistor{
     distance = dist(mouseX,mouseY, this.x+40, this.y+1);
 
     if(distance < 4){
-      result[0] = "R" + String(this.value);
+      result[0] = "RR" + String(this.num);
       result[1] = this.x+40;
       result[2] = this.y+1;
     }
