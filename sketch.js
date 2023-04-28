@@ -9,6 +9,8 @@ let challange;
 let answer;
 let simulateButton;
 let nextButton;
+let succes = false;
+let myMillis;
 
 function setup() {
   createCanvas(400, 400);

@@ -9,9 +9,9 @@ class level2{
 
     intro = true;
     buttons[0] = createButton("continue");
-    this.introText1 = "hello introText1";
+    this.introText1 = "hello introText level 2";
 
-    this.succes = false;
+    this.ledStatus = false;
   }
   
   draw(){
@@ -30,8 +30,20 @@ class level2{
         connections[i].draw();
       }
 
-      if(this.succes == true){
-        
+      if(succes == true){
+
+        if( (millis() - myMillis) >= 1000){
+
+          this.ledStatus = !this.ledStatus;
+
+          if(this.ledStatus == true){
+            objects[1].on();
+          }
+          else{
+            objects[1].off();
+          }
+          myMillis = millis();
+        }
       }
     }
   }
@@ -76,10 +88,11 @@ class level2{
     }
 
     if(correct == true){
-      this.succes = true;
+      succes = true;
       answer.html("The simulation was succesfull.");
       simulateButton.hide();
       nextButton.show();
+      myMillis = millis();
     }
     else{
       answer.html("The simulation was not succesfull. Try again.");
