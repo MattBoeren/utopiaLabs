@@ -81,13 +81,13 @@ class level2{
     solution2[1][2] = "GND";
 
 
-    let correct = checkSolution(solution1);
+    let simulationResult = checkSolution(solution1);
 
-    if(correct == false){
-      correct = checkSolution(solution2);
+    if(simulationResult == false){
+      simulationResult = checkSolution(solution2);
     }
 
-    if(correct == true){
+    if(simulationResult == true){
       succes = true;
       answer.html("The simulation was succesfull.");
       simulateButton.hide();

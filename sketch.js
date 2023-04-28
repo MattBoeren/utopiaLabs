@@ -95,24 +95,29 @@ function checkSolution(givenSolution){
 
   let solution = givenSolution;
 
-  let firstResistorSide = "";
-  let whichResistor = "";
+  let firstSide = "";
+  let whichElement = "";
+  let firstSidesDone = [];
+  let nonPolarElements = ["R", "B"];
 
   for(let i = 0; i < connections.length; i++){
     
     let start = connections[i].getStart();
     let end = connections[i].getEnd();
 
-    if(firstResistorSide == ""){
-      if(start.charAt(1) == "R"){
-        firstResistorSide == start.charAt(0);
+    if((firstSide == "") 
+    && (notInList(start.substring(1), firstSidesDone) == true) 
+    && (notInList(end.substring(1), firstSidesDone) == true)){
+
+      if(inList(start.charAt(1), nonPolarElements) == true){
+        firstSide == start.charAt(0);
         start = start.substring(1);
-        whichResistor = start;
+        whichElement = start;
       }
-      if(end.charAt(1) == "R"){
-        firstResistorSide == end.charAt(0);
+      if(inList(end.charAt(1), nonPolarElements) == true){
+        firstSide == end.charAt(0);
         end = end.substring(1);
-        whichResistor = end;
+        whichElement = end;
       }
     }
 
@@ -128,13 +133,13 @@ function checkSolution(givenSolution){
         }
       }
     }
-    if(firstResistorSide != ""){
+    if(firstSide != ""){
       let count = 0;
       let index1, index2;
 
       for(let i = 0; i < solution.length; i++){
         for(let j = 0; j < solution[0].length; j++){
-          if(solution[i][j] == whichResistor){
+          if(solution[i][j] == whichElement){
             count += 1;
             index1 = i;
             index2 = j;
@@ -142,28 +147,53 @@ function checkSolution(givenSolution){
         }
       }
       if(count == 2){
-        firstResistorSide = "";
+        firstSide = "";
       }
       if(count == 1){
-        if(firstResistorSide == "L"){
-          solution[index1][index2] = "R" + whichResistor;
+        if(firstSide == "L"){
+          solution[index1][index2] = "R" + whichElement;
         }
         else{
-          solution[index1][index2] = "L" + whichResistor;
+          solution[index1][index2] = "L" + whichElement;
         }
-        
+        firstSidesDone.append(whichElement);
+        firstSide = "";
       }
     }
   }
-
   let result = true;
-  for(let i = 0; i < solution.length; i++){
-    for(let j = 0; j < solution[0].length; j++){
-      if(solution[i][j] != "done"){
-        result = false;
+  if(solution[0].length == connections.length){
+    for(let i = 0; i < solution.length; i++){
+      for(let j = 0; j < solution[0].length; j++){
+        if(solution[i][j] != "done"){
+          result = false;
+        }
       }
     }
   }
+  else{
+    result = false;
+  }
 
+  return result;
+}
+
+function notInList(item, list){
+  let result = true;
+  for(let i = 0; i < list.length; i++){
+    if(list[i] == item){
+      result = false;
+    }
+  }
+  return result;
+}
+
+function inList(item, list){
+  let result = false;
+  for(let i = 0; i < list.length; i++){
+    if(list[i] == item){
+      result = true;
+    }
+  }
   return result;
 }
