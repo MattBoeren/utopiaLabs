@@ -151,6 +151,7 @@ function checkSolution(givenSolution){
         else{
           solution[index1][index2] = "L" + whichResistor;
         }
+        
       }
     }
   }

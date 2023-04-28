@@ -101,6 +101,10 @@ class level2{
   }
 
   next(){
-
+    challange.hide();
+    answer.hide();
+    nextButton.hide();
+    connections = [];
+    level = new level3();
   }
 }
