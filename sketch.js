@@ -16,13 +16,11 @@ function setup() {
   createCanvas(400, 400);
   level = new level1();
 
-
   simulateButton = createButton("simulate");
   simulateButton.hide();
 
   nextButton = createButton("next level");
   nextButton.hide();
-  
   
 }
 
@@ -99,6 +97,57 @@ function checkSolution(givenSolution){
   let whichElement = "";
   let firstSidesDone = [];
   let nonPolarElements = ["R", "B"];
+  let connectors = objects[0].getConnectors();
+
+  for(let i = 0; i < connections.length; i++){
+    for(let j = 0; j < connections.length; j++){
+      if(i != j){
+        if(connections[i].getStart() == connections[j].getEnd()){
+          if(notInList(connections[i].getStart(),connectors) == true){
+            if(inList(connections[i].getEnd(),connectors) == true){
+              connections[j].setEnd(connections[i].getEnd());
+            }
+            else{
+              connections[i].setEnd(connections[j].getStart());
+            }
+          }
+        }
+
+        if(connections[i].getStart() == connections[j].getStart()){
+          if(notInList(connections[i].getStart(),connectors) == true){
+            if(inList(connections[i].getEnd(),connectors) == true){
+              connections[j].setStart(connections[i].getEnd());
+            }
+            else{
+              connections[i].setStart(connections[j].getEnd());
+            }
+          }
+        }
+
+        if(connections[i].getEnd() == connections[j].getEnd()){
+          if(notInList(connections[i].getEnd(),connectors) == true){
+            if(inList(connections[i].getStart(),connectors) == true){
+              connections[j].setEnd(connections[i].getStart());
+            }
+            else{
+              connections[i].setEnd(connections[j].getStart());
+            }
+          }
+        }
+        if(connections[i].getEnd() == connections[j].getStart()){
+          if(notInList(connections[i].getEnd(),connectors) == true){
+            if(inList(connections[i].getStart(),connectors) == true){
+              connections[j].setStart(connections[i].getStart());
+            }
+            else{
+              connections[i].setEnd(connections[j].getEnd());
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   for(let i = 0; i < connections.length; i++){
     

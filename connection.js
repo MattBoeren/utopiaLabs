@@ -50,4 +50,10 @@ class connection{
   getEnd(){
     return this.end;
   }
+  setStart(start){
+    this.start = start;
+  }
+  setEnd(end){
+    this.end = end;
+  }
 }

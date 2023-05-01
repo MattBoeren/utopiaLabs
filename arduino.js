@@ -153,4 +153,12 @@ class arduino{
     }
     return result;
   }
+  getConnectors(){
+    let newConnectors = [];
+
+    for(let i = 0; i < this.connectors.length; i++){
+      newConnectors[i] = this.connectors[i][0]
+    }
+    return newConnectors;
+  }
 }
