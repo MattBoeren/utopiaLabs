@@ -148,6 +148,9 @@ function checkSolution(givenSolution){
     }
   }
 
+  for(let i = 0; i < connections.length; i++){
+    console.log(String(connections[i].getStart()) + " " + String(connections[i].getEnd()));
+  }
 
   for(let i = 0; i < connections.length; i++){
     

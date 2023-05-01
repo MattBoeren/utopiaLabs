@@ -62,35 +62,35 @@ class level1{
   }
 
   simulate(){
-    let solution1 = [];
-    solution1[0] = [];
-    solution1[1] = [];
+    let solution = [];
+    solution[0] = [];
+    solution[1] = [];
 
-    solution1[0][0] = "5V";
-    solution1[0][1] = "1-";
-    solution1[0][2] = "R1";
+    solution[0][0] = "5V";
+    solution[0][1] = "1-";
+    solution[0][2] = "R1";
     
-    solution1[1][0] = "1+";
-    solution1[1][1] = "R1";
-    solution1[1][2] = "GND";
+    solution[1][0] = "1+";
+    solution[1][1] = "R1";
+    solution[1][2] = "GND";
 
-    let solution2 = [];
-    solution2[0] = [];
-    solution2[1] = [];
-
-    solution2[0][0] = "5V";
-    solution2[0][1] = "R1";
-    solution2[0][2] = "1-";
-
-    solution2[1][0] = "R1";
-    solution2[1][1] = "1+";
-    solution2[1][2] = "GND";
-
-
-    let correct = checkSolution(solution1);
+    let correct = checkSolution(solution);
 
     if(correct == false){
-      correct = checkSolution(solution2);
+
+      solution = [];
+      solution[0] = [];
+      solution[1] = [];
+  
+      solution[0][0] = "5V";
+      solution[0][1] = "R1";
+      solution[0][2] = "1-";
+  
+      solution[1][0] = "R1";
+      solution[1][1] = "1+";
+      solution[1][2] = "GND";
+
+      correct = checkSolution(solution);
     }
 
     if(correct == true){
