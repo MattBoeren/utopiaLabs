@@ -15,6 +15,7 @@ class resistor{
     rect(this.x+5, this.y-5, 30, 13, 5);
     textAlign(CENTER, CENTER);
     fill(255,255,255);
+    textSize(10);
     text(this.value + "Ω", this.x+20, this.y+1);
   }
 

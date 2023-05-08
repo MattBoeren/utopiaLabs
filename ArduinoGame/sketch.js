@@ -11,21 +11,27 @@ let simulateButton;
 let nextButton;
 let succes = false;
 let myMillis;
+let codeImg;
 
 function setup() {
   createCanvas(400, 400);
   level = new level1();
 
+  codeImg = select("#codeSnipits"); 
+  codeImg.hide();
+
   simulateButton = createButton("simulate");
+  simulateButton.parent("#B2");
   simulateButton.hide();
 
   nextButton = createButton("next level");
+  nextButton.parent("#B2");
   nextButton.hide();
   
 }
 
 function draw() {
-  background(255);
+  background(250);
 
   level.draw();
   
@@ -146,10 +152,6 @@ function checkSolution(givenSolution){
         }
       }
     }
-  }
-
-  for(let i = 0; i < connections.length; i++){
-    console.log(String(connections[i].getStart()) + " " + String(connections[i].getEnd()));
   }
 
   for(let i = 0; i < connections.length; i++){

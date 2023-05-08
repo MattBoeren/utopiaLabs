@@ -10,19 +10,21 @@ class level3{
     buttons = [];
 
     buttons[0] = createButton("continue");
+    buttons[0].parent("#B2");
 
     intro = true;
 
     succes = false;
 
-    this.introText1 = "hello introText level 3";
+    this.introText1 = "One of the most common inputs in electronics is a pushbutton. A flaw of using buttons is that as an input it will create a short circuit. Another flaw is that there are electromagnetic frequentcies in the air that can be read by the Arduino because wires are antennas aswell. This can be solved by using a resistor. This can be done in two ways called pulldown and pullup. The pulldown method can be done by connecting one side of the button to the 5V pin. The other side needs two connections one to a digital pin and one via a resistor to the ground. The pullup method can be done by connecting one side of the button to a digital pin and the other to the groud. This is because the arduino has build in pullup resistors. If you use this method in the you need to use INPUT_PULLUP instead of INPUT in the pinMode function. A flaw of this method is that the logic in the code will be reversed If the button is pressed it will give a low signal. The button can be read out using the digitalRead function in the code.";
   }
 
   draw(){
     if(intro == true){
       noStroke();
       fill(0,0,0);
-      text(this.introText1, 10, 10, 350, 150);
+      textSize(14);
+      text(this.introText1, 10, 10, 350, 350);
       buttons[0].mousePressed(level.continue);
     }
     else{
@@ -47,6 +49,10 @@ class level3{
   continue(){
     buttons[0].remove();
     simulateButton.show();
+    challange.html("Challange: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
+    challange.show();
+    codeImg.attribute('src', "/codeSnipits/codeLevel3.png");
+    codeImg.show();
     intro = false;
   }
 
@@ -93,7 +99,7 @@ class level3{
 
     if(simulationResult == true){
       succes = true;
-      answer.html("The simulation was succesfull.");
+      answer.html("The simulation was succesfull. Press the black part of the button to light the LED.");
       simulateButton.hide();
       nextButton.show();
     }

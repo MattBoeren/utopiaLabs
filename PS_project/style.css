@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+

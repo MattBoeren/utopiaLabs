@@ -11,21 +11,27 @@ class level1{
 
     this.introText2 = "A flaw of LED's is that their resistance is to low. This means that if you connect an LED to the arduino without a resistor you will short circuit the arduino. To avoid that we can connect a resistor in series to the LED. The resistance of the resistor can be calculated by the following formula: R = (U-Uled)/I. With R being the resistance, U being the voltage, Uled the voltage the led needs and I being the current of the led. Their is not a resistor for every resistorvalue so it is best to use a higher resistor value than you calculated.";
 
-
-    challange = createElement('p',"Challange: Which resistor fits best? if the arduino puts out 5V, the LED needs 2.2V and uses 0.02A of current.");
+    challange = select('#challange');
+    challange.html("Challange: Which resistor fits best? if the arduino puts out 5V, the LED needs 2.2V and uses 0.02A of current.");
 
     buttons[0] = createButton("100Ω");
     buttons[1] = createButton("150Ω");
     buttons[2] = createButton("200Ω");
 
-    answer = createElement('p', "Choose an answer.");
+    buttons[0].parent('#B1');
+    buttons[1].parent('#B2');
+    buttons[2].parent('#B3');
+
+    answer = select('#solution');
+    answer.html("Choose an answer.");
   }
 
   draw(){
 
     if(intro == true){
-      text(this.introText1, 10,10,350,150);
-      text(this.introText2, 10,150,350,400);
+      textSize(14);
+      text(this.introText1, 10,10,350,200);
+      text(this.introText2, 10,200,350,400);
 
       buttons[0].mousePressed(level.wrong);
       buttons[1].mousePressed(level.right);

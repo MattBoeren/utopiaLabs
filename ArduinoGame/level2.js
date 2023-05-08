@@ -9,7 +9,8 @@ class level2{
 
     intro = true;
     buttons[0] = createButton("continue");
-    this.introText1 = "hello introText level 2";
+    buttons[0].parent("#B2");
+    this.introText1 = "Now we know how the hardware works so we can start with the coding part. The coding of an Arduino has two main functions. The void setup(){} which runs ones before running the void loop(){}. The loop runs as long the Arduino has power. Before the void setup variables can be defined. The main thing that need to happen in the setup is defining if a pin is an input or an output. This can be done using the pinMode() function. The function needs two attributes: the pin itself and if it is an INPUT or an OUTPUT. Within the loop the main program can be programmed. The function digitalWrite() will write a digital output HIGH or LOW. The delay function will delay the program at that point by the time given in milliseconds.";
 
     this.ledStatus = false;
   }
@@ -18,7 +19,9 @@ class level2{
     if(intro == true){
       noStroke();
       fill(0,0,0);
-      text(this.introText1, 10, 10, 350, 150);
+      textSize(14);
+      textAlign(LEFT);
+      text(this.introText1, 10, 10, 350, 350);
       buttons[0].mousePressed(level.continue);
     }
     else{
@@ -52,6 +55,12 @@ class level2{
     buttons[0].remove();
     simulateButton.show();
     intro = false;
+
+    challange.html("Challange: given the following code connect the led that it will blink if the code will be ran.");
+    challange.show();
+
+    codeImg.attribute('src', "codeSnipits/codeLevel2.png");
+    codeImg.show();
   }
 
   simulate(){
@@ -105,6 +114,7 @@ class level2{
     answer.hide();
     nextButton.hide();
     connections = [];
+    codeImg.hide();
     level = new level3();
   }
 }
