@@ -5,11 +5,12 @@ let boxWidth = 200;
 let boxHeight = 100;
 let score = 0;
 let img;
+let button;
 function displayText() {
-  document.getElementById("demo").innerHTML = "4H+C";
+  document.getElementById("demo").innerHTML = "2C+2O+4H";
 }
 function preload() {
-  img = loadImage('methane.png');
+  img = loadImage('vinegar.png');
 }
 function setup() {
   createCanvas(600, 500);
@@ -17,10 +18,19 @@ function setup() {
     balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
     balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
     balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
+
+    balls.push(new Ball(random(500), random(310), String.fromCharCode(79)));
+    balls.push(new Ball(random(500), random(310), String.fromCharCode(79)));
+
+    balls.push(new Ball(random(500), random(310), String.fromCharCode(67)));
     balls.push(new Ball(random(500), random(310), String.fromCharCode(67)));
 
-  for (let i = 0; i < 5; i++) {
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(65 + floor(random(7)))));
+    button = createButton('Next!');
+    button.mousePressed(goToNextPage);
+    button.hide();
+
+  for (let i = 0; i < 8; i++) {
+    balls.push(new Ball(random(500), random(300+10), String.fromCharCode(65 + floor(random(16,26)))));
   }
 }
 ///////////////////////////////////////////////////////////////////////////
@@ -38,7 +48,7 @@ function draw() {
   
 for (let i = 0; i < balls.length; i++) {
   if (balls[i].x > boxX && balls[i].x < boxX + boxWidth && balls[i].y > boxY && balls[i].y < boxY + boxHeight ) {
-    if (balls[i].symbol === "H" || balls[i].symbol ==="C") {
+    if (balls[i].symbol === "H" || balls[i].symbol ==="O" || balls[i].symbol ==="C") {
       balls.splice(i, 1);
       score++;
     } else {
@@ -50,19 +60,16 @@ for (let i = 0; i < balls.length; i++) {
 
 
 
- if (score === 5) {
+ if (score === 8) {
     image(img, width/2-40 - img.width/2, height/2 - img.height/2);
-    
-    let button = createButton('Finish!');
-    button.position(width/2-65, height/2+230);
-    button.mousePressed(goToNextPage);
+
+    button.show();
   }
 
-function goToNextPage() {
-  window.location.href = "siye";
 }
 
-
+function goToNextPage() {
+  window.location.href = "../third_page/third.html";
 }
 
 function mouseClicked() {
@@ -70,7 +77,6 @@ function mouseClicked() {
     balls[i].mouseClicked();
   }
 }
-
 class Ball {
   constructor(x, y, symbol) {
     this.x = x;
@@ -90,7 +96,7 @@ class Ball {
       this.y += random(-this.speed, this.speed);
     }
     
-    // 
+    
     if (this.x < -this.diameter/2) {
       this.x = width + this.diameter/2;
     } else if (this.x > width + this.diameter/2) {
@@ -112,6 +118,7 @@ class Ball {
     textSize(15);
     text(this.symbol, this.x, this.y);
   }
+
   mouseClicked() {
     let d = dist(mouseX, mouseY, this.x, this.y);
     if (d < this.diameter / 2) {

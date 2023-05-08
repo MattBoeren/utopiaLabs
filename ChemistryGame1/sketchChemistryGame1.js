@@ -5,34 +5,33 @@ let boxWidth = 200;
 let boxHeight = 100;
 let score = 0;
 let img;
+let button;
+
 function displayText() {
-  document.getElementById("demo").innerHTML = "2C+2O+4H";
+  document.getElementById("demo").innerHTML = "H+O+H";
 }
 function preload() {
-  img = loadImage('vinegar.png');
+  img = loadImage('h2o.png');
 }
 function setup() {
   createCanvas(600, 500);
     balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
     balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(72)));
-
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(79)));
     balls.push(new Ball(random(500), random(310), String.fromCharCode(79)));
 
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(67)));
-    balls.push(new Ball(random(500), random(310), String.fromCharCode(67)));
-
-
-
-  for (let i = 0; i < 8; i++) {
-    balls.push(new Ball(random(500), random(300+10), String.fromCharCode(65 + floor(random(16,26)))));
+  for (let i = 0; i < 7; i++) {
+    balls.push(new Ball(random(500), random(300+10), String.fromCharCode(65 + floor(random(7)))));
   }
+
+  button = createButton('Next!');
+  button.mousePressed(goToNextPage);
+  button.hide();
 }
 ///////////////////////////////////////////////////////////////////////////
 function draw() {
   background(50, 89, 100);
+  
+
   strokeWeight(4);
   stroke(255);
   fill(0);
@@ -45,7 +44,7 @@ function draw() {
   
 for (let i = 0; i < balls.length; i++) {
   if (balls[i].x > boxX && balls[i].x < boxX + boxWidth && balls[i].y > boxY && balls[i].y < boxY + boxHeight ) {
-    if (balls[i].symbol === "H" || balls[i].symbol ==="O" || balls[i].symbol ==="C") {
+    if (balls[i].symbol === "H" || balls[i].symbol ==="O") {
       balls.splice(i, 1);
       score++;
     } else {
@@ -57,19 +56,16 @@ for (let i = 0; i < balls.length; i++) {
 
 
 
- if (score === 8) {
+ if (score === 3) {
     image(img, width/2-40 - img.width/2, height/2 - img.height/2);
     
-    let button = createButton('Next!');
-    button.position(width/2-65, height/2+200);
-    button.mousePressed(goToNextPage);
+    button.show();
   }
 
-function goToNextPage() {
-  window.location.href = "/third_page/third.html";
 }
 
-
+function goToNextPage() {
+  window.location.href = "second_page/second.html";
 }
 
 function mouseClicked() {
@@ -77,6 +73,8 @@ function mouseClicked() {
     balls[i].mouseClicked();
   }
 }
+
+
 class Ball {
   constructor(x, y, symbol) {
     this.x = x;
@@ -96,7 +94,7 @@ class Ball {
       this.y += random(-this.speed, this.speed);
     }
     
-    
+  
     if (this.x < -this.diameter/2) {
       this.x = width + this.diameter/2;
     } else if (this.x > width + this.diameter/2) {
@@ -122,7 +120,7 @@ class Ball {
   mouseClicked() {
     let d = dist(mouseX, mouseY, this.x, this.y);
     if (d < this.diameter / 2) {
-      this.isClicked = !this.isClicked;
+      this.isClicked = !this.isClicked; 
     }
   }
 }

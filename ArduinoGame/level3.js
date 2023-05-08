@@ -51,7 +51,7 @@ class level3{
     simulateButton.show();
     challange.html("Challange: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
     challange.show();
-    codeImg.attribute('src', "/codeSnipits/codeLevel3.png");
+    codeImg.attribute('src', "codeSnipits/codeLevel3.png");
     codeImg.show();
     intro = false;
   }

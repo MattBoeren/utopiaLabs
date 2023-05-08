@@ -11,7 +11,7 @@ class level4{
 
     challange.html("Challange: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
     challange.show();
-    codeImg.attribute('src', "/codeSnipits/codeLevel4.png");
+    codeImg.attribute('src', "codeSnipits/codeLevel4.png");
   }
 
   draw(){
