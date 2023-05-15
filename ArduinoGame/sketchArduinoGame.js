@@ -27,7 +27,6 @@ function setup() {
   nextButton = createButton("next level");
   nextButton.parent("#B2");
   nextButton.hide();
-  
 }
 
 function draw() {

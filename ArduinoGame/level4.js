@@ -12,6 +12,8 @@ class level4{
     challange.html("Challange: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
     challange.show();
     codeImg.attribute('src', "codeSnipits/codeLevel4.png");
+
+    
   }
 
   draw(){
@@ -84,7 +86,7 @@ class level4{
         succes = true;
         answer.html("The simulation was succesfull. Press the black part of the button to light the LED.");
         simulateButton.hide();
-        select('ul').hide();
+
       }
 
       else{

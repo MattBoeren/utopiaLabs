@@ -5,7 +5,7 @@ let boxWidth = 200;
 let boxHeight = 100;
 let score = 0;
 let img;
-let button;
+
 function displayText() {
   document.getElementById("demo").innerHTML = "4H+C";
 }
@@ -23,10 +23,6 @@ function setup() {
   for (let i = 0; i < 5; i++) {
     balls.push(new Ball(random(500), random(310), String.fromCharCode(65 + floor(random(7)))));
   }
-
-  button = createButton('Finished!');
-  button.mousePressed(goToNextPage);
-  button.hide();
 
 }
 ///////////////////////////////////////////////////////////////////////////
@@ -63,10 +59,6 @@ for (let i = 0; i < balls.length; i++) {
   }
 
 
-}
-
-function goToNextPage() {
-  window.location.href = "../../index.html";
 }
 
 function mouseClicked() {
