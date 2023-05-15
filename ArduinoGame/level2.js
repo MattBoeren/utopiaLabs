@@ -56,7 +56,7 @@ class level2{
     simulateButton.show();
     intro = false;
 
-    challange.html("Challange: given the following code connect the led that it will blink if the code will be ran.");
+    challange.html("Challenge: given the following code connect the led that it will blink if the code will be ran.");
     challange.show();
 
     codeImg.attribute('src', "codeSnipits/codeLevel2.png");

@@ -9,7 +9,7 @@ class level4{
     objects[4] = new button(220, 50, 1);
     succes = false;
 
-    challange.html("Challange: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
+    challange.html("Challenge: connect the LED and the button that if the following code runs the LED will light up if the button is pressed.");
     challange.show();
     codeImg.attribute('src', "codeSnipits/codeLevel4.png");
 

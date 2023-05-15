@@ -12,7 +12,7 @@ class level1{
     this.introText2 = "A flaw of LED's is that their resistance is to low. This means that if you connect an LED to the arduino without a resistor you will short circuit the arduino. To avoid that we can connect a resistor in series to the LED. The resistance of the resistor can be calculated by the following formula: R = (U-Uled)/I. With R being the resistance, U being the voltage, Uled the voltage the led needs and I being the current of the led. Their is not a resistor for every resistorvalue so it is best to use a higher resistor value than you calculated.";
 
     challange = select('#challange');
-    challange.html("Challange: Which resistor fits best? if the arduino puts out 5V, the LED needs 2.2V and uses 0.02A of current.");
+    challange.html("Challenge: Which resistor fits best? if the arduino puts out 5V, the LED needs 2.2V and uses 0.02A of current.");
 
     buttons[0] = createButton("100Ω");
     buttons[1] = createButton("150Ω");
@@ -57,7 +57,7 @@ class level1{
 
     simulateButton.show();
 
-    challange.html("Challange: Connect the LED to the 5V and GND pin of the arduino in the right way to light the LED. Click the simulate button afterwords.");
+    challange.html("Challenge: Connect the LED to the 5V and GND pin of the arduino in the right way to light the LED. Click the simulate button afterwords.");
 
     answer.hide();
   }
