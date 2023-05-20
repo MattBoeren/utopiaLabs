@@ -7,8 +7,12 @@ navigated to a window where they will need to connect the given componants.
 The componants need to be connected like the question/code asks.
 A connection can be made by clicking on the pin of the component and than clicking on the other componant.
 Between componants the user can click on the field to make a bent in the connection.
+The color of the wire connecting the componants can be changed by pressing the key acording to the color.
+The keys acording to which colors are displayed on the screen when making a connection.
 
+After the user have made their connections they can press the simulate button.
 If the user have made the right connections an animation will play with what will happen in real life.
+If the user have made the wrong connections a message will pop up that the simulation was not succesfull.
 
 For the following levels this will go on but without a multiplechoise question.
 
