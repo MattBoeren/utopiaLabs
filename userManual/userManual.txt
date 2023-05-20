@@ -19,3 +19,11 @@ For the following levels this will go on but without a multiplechoise question.
 chemistry elements game:
 
 chemistry ph-scale game:
+
+The purpose of this game is to let students do a little experiment to learn more about how the pH scale works.
+
+Here's some extra explanation about how to use the game:
+First there's a question that you need to answer by clicking on the right button (you can choose between 2 buttons namely lemon and soap).
+When you click on a button a text will appear saying if you answered right or wrong with some extra explanation.
+
+Have fun with it
