@@ -15,15 +15,27 @@ If the user have made the right connections an animation will play with what wil
 If the user have made the wrong connections a message will pop up that the simulation was not succesfull.
 
 For the following levels this will go on but without a multiplechoise question.
-
-chemistry elements game:
+© 1ACS02 - Matt Boeren
 
 chemistry ph-scale game:
 
 The purpose of this game is to let students do a little experiment to learn more about how the pH scale works.
 
 Here's some extra explanation about how to use the game:
-First there's a question that you need to answer by clicking on the right button (you can choose between 2 buttons namely lemon and soap).
+First there's a question that you need to answer by clicking on the right button 
+(you can choose between 2 buttons namely lemon and soap).
 When you click on a button a text will appear saying if you answered right or wrong with some extra explanation.
 
 Have fun with it
+© 1ACS02 - Jana Vande Velde
+
+chemistry elements game:
+
+Welcome to second part of our chemistry game! This manual will help you get started with the game.
+Utopia labs is a collection of 2 games like Arduino building and chemistry games. 
+This game was created to introduce students with simple molecular structure and how it works. 
+In the main screen you can see moleculas(balls) flying around, you can grab and move them whenever you want. 
+Simply, by following task you must collect moleculas in the box in the bottom corner. 
+If you complete the level, you will see the following image with real molecular structure. 
+In case of struggling, there button for a hint! 
+© 1ACS02 - Abdykadyrova Nariste(Maky)
